@@ -82,7 +82,7 @@ public class PageMaker {
 	  }
 	  
 	  
-/*	  public String makeSearch(int page){
+	  public String makeSearch(int page){
 	    
 	    UriComponents uriComponents =
 	              UriComponentsBuilder.newInstance()
@@ -93,5 +93,5 @@ public class PageMaker {
 	              .build();             
 	    
 	    return uriComponents.toUriString();
-	  } */
+	  } 
 }
