@@ -15,6 +15,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import com.youngjee.domain.BoardVO;
 import com.youngjee.domain.Criteria;
+import com.youngjee.domain.SearchCriteria;
 import com.youngjee.persistence.BoardDAO;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -29,8 +30,8 @@ public class BoardDAOTest {
 	@Test
 	public void  testCreate() throws Exception {
 		BoardVO  boardVO = new BoardVO();
-		boardVO.setTitle("»õ·Î¿î ±ÛÀ» ³Ö½À´Ï´Ù.");
-		boardVO.setContent("»õ·Î¿î ³»¿ëÀ» ³Ö½À´Ï´Ù.");
+		boardVO.setTitle("ï¿½ï¿½ï¿½Î¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö½ï¿½ï¿½Ï´ï¿½.");
+		boardVO.setContent("ï¿½ï¿½ï¿½Î¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö½ï¿½ï¿½Ï´ï¿½.");
 		boardVO.setWriter("user00");
 		
 		dao.create(boardVO);
@@ -97,6 +98,22 @@ public class BoardDAOTest {
 				.encode();
 		
 		logger.info(uriComponents.toString());
+	}
+	
+	@Test
+	public void testDynamic() throws Exception {
+		SearchCriteria cri = new SearchCriteria();
+		cri.setPage(1);
+		cri.setKeyword("ê¸€");
+		cri.setSearchType("t");
+		
+		List<BoardVO> list = dao.listSearch(cri);
+		
+		for (BoardVO boardVO : list) {
+			logger.info(boardVO.getBno()+":"+boardVO.getTitle());
+		}
+		
+		logger.info("COUNT:"+dao.listSeachCount(cri));
 	}
 	
 

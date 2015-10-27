@@ -10,6 +10,10 @@
 		</layout>
 	</appender>
 	
+	<logger name="jdbc.sqlonly">
+		<level value="info" />
+	</logger>
+	
 	<!-- Application Loggers -->
 	<logger name="com.youngjee.controller">
 		<level value="info" />

@@ -15,6 +15,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.youngjee.domain.BoardVO;
 import com.youngjee.domain.Criteria;
 import com.youngjee.domain.PageMaker;
+import com.youngjee.domain.SearchCriteria;
 import com.youngjee.service.BoardService;
 
 @Controller
@@ -125,4 +126,5 @@ public class BoardController {
 		model.addAttribute(service.read(bno));
 	}
 	
+
 }
